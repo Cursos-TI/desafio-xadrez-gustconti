@@ -18,10 +18,15 @@ void movimentarCavalo()
         }
 
         posicaoX++;
-        print("Direita\n");
+        printf("Direita\n");
     }
 
     printf("Posição do cavalo: %d, %d\n", posicaoX, posicaoY);
+}
+
+void movimentarCavaloAvancado()
+{
+
 }
 
 void movimentarBispo()
@@ -42,16 +47,59 @@ void movimentarBispo()
     }
 }
 
+void movimentarBispoRecursao()
+{
+
+}
+
 void movimentarTorre()
 {
     int posicaoX = 1;
     int posicaoY = 1;
+    int i = 1;
+    int numeroCasas = 2;
 
-    for (int i = 0; i < 1; i++)
+    movimentarTorreSimples(posicaoX, i, numeroCasas); 
+    movimentarTorreRecursao(posicaoX, i, numeroCasas);
+}
+
+void movimentarTorreSimples(int posicaoX, int i, int numeroCasas) 
+{
+    for (i; i <= numeroCasas; i++)
     {
         posicaoX++;
         printf("Direita\n");
+    }
+}
 
+void movimentarTorreRecursao(int posicaoX, int i, int numeroCasas)
+{
+    if (i <= numeroCasas)
+    {
+        posicaoX++;
+        i++;
+        printf("Direita\n");
+        movimentarTorreRecursao(posicaoX, i, numeroCasas);
+    }
+}
+
+void movimentarRainhaSimples(int posicaoX, int i, int numeroCasas)
+{
+    for (i; i <= numeroCasas; i++)
+    {
+        posicaoX--;
+        printf("Esquerda\n");
+    }
+};
+
+void movimentarRainhaRecursao(int posicaoX, int i, int numeroCasas)
+{
+    if(i <= numeroCasas)
+    {
+        posicaoX--;
+        i++;
+        printf("Esquerda\n");
+        movimentarRainhaRecursao(posicaoX, i, numeroCasas);
     }
 }
 
@@ -59,21 +107,22 @@ void movimentarRainha()
 {
     int posicaoX = 4;
     int posicaoY = 1;
+    int contador = 1;
+    int numeroCasas = 2;
     
-    for (int i = 0; i < 1; i++)
-    {
-        posicaoX--;
-        printf("Esquerda\n");
-    }
+    printf("movimentarRainhaSimples\n");
+    movimentarRainhaSimples(posicaoX, contador, numeroCasas); 
+    printf("movimentarRainhaRecursao\n");
+    movimentarRainhaRecursao(posicaoX, contador, numeroCasas);   
 }
 
 int main()
 {
-    movimentarCavalo();
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
-
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    // movimentarCavalo();
+    // movimentarCavaloAvancado();
+    // movimentarBispo();
+    // movimentarBispoRecursao();
+    // movimentarTorre();
+    // movimentarTorreRecursao();
+    movimentarRainha();
 }
