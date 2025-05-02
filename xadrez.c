@@ -49,7 +49,7 @@ void movimentarBispo()
 
 void movimentarBispoRecursao()
 {
-
+    
 }
 
 void movimentarTorre()
